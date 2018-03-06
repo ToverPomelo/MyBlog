@@ -1,5 +1,5 @@
 git add .
 git add themes/mellow/.
 git commit -m “backup”
-git push
+git push -u origin master
 
