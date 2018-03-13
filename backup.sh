@@ -1,4 +1,6 @@
 cd ~/blog
+
+echo Backuping public/
 rm -rf ./public_old/
 cp -r ./public ./public_old
 
