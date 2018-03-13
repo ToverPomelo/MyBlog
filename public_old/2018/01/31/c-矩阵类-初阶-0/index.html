@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>c++矩阵类-初阶[0] | 编程〲雜事</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="c++,线性代数">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.2.6">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"pDVrEBR2kfGnEETJ9ip0RKEu-gzGzoHsz","app_key":"XkCVLMRoInrzWpAQYAQCCAhv","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"pDVrEBR2kfGnEETJ9ip0RKEu-gzGzoHsz","appkey":"XkCVLMRoInrzWpAQYAQCCAhv","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"664514882@qq.com","repo":"gitment","oauth":{"client_id":"3d5cbbc3baa089167063","client_secret":"cb179017b6ff87215e0c6e02a31d611ebd6a8629"},"perPage":10}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115646768-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115646768-1');
+</script>
+
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tover</h5>
+          <a href="mailto:q664514882@gmail.com" title="q664514882@gmail.com" class="mail">
+            
+              <span>q</span>
+            
+              <span>6</span>
+            
+              <span>6</span>
+            
+              <span>4</span>
+            
+              <span>5</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>8</span>
+            
+              <span>2</span>
+            
+              <span>@</span>
+            
+              <span>g</span>
+            
+              <span>m</span>
+            
+              <span>a</span>
+            
+              <span>i</span>
+            
+              <span>l</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/codefine" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>c++矩阵类-初阶[0]</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">c++矩阵类-初阶[0]</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-31T06:00:41.000Z" itemprop="datePublished" class="page-time">
+  2018-01-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math数学相关/">Math数学相关</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math数学相关/C-C-编程相关/">C\C++编程相关</a></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+
+<div class="container body-wrap">
+    <article id="post-c-矩阵类-初阶-0"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">c++矩阵类-初阶[0]</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-31 14:00:41" datetime="2018-01-31T06:00:41.000Z"  itemprop="datePublished">2018-01-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math数学相关/">Math数学相关</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math数学相关/C-C-编程相关/">C\C++编程相关</a></li></ul></li></ul>
+
+
+
+            
+	<span id="/2018/01/31/c-矩阵类-初阶-0/" class="leancloud_visitors" data-flag-title="c++矩阵类-初阶[0]" title="c++矩阵类-初阶[0]">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/2018/01/31/c-矩阵类-初阶-0/#comment">
+            <span class="valine-comment-count" data-xid="/2018/01/31/c-矩阵类-初阶-0/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>&emsp;&emsp;构造函数怎么写好?<br><a id="more"></a></p>
+<hr>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><hr>
+<p>&emsp;&emsp;首先应该用什么来存放一个矩阵？比较容易的会想到用二维数组，为此需要一个指针指向这个二位数组，我把它叫做“matrix_p”。另外，矩阵中的数应该是实数，为了偷懒用double类型就好了。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> **matrix_p;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;在构造矩阵的时候还要明确矩阵的大小，即行数和列数，这里我把它们分别叫做“m_row”和“m_col”。类型为int即可。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m_row;</span><br><span class="line"><span class="keyword">int</span> m_col;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;另外为了方便遇到错误时可以发出警告且退出程序，我还写了一个函数（先在这里放出来，有一些还没用到的）：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">error</span><span class="params">(<span class="keyword">int</span> mark)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(mark)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Row or column should be more than zero!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Format error!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inner bracket error!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Outer bracket error!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Size not match!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Warning: row not exit!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">7</span>:<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Not invertable!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">8</span>:<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Not projectable!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="构造函数："><a href="#构造函数：" class="headerlink" title="构造函数："></a>构造函数：</h1><hr>
+<h2 id="需求①：构造一个空的矩阵"><a href="#需求①：构造一个空的矩阵" class="headerlink" title="需求①：构造一个空的矩阵"></a>需求①：构造一个空的矩阵</h2><p>&emsp;&emsp;这个比较简单，只要把行数和列数定为0,指针指向空就好了。直接上代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Matrix::Matrix()  <span class="comment">//Matrix是我的类名</span></span><br><span class="line">&#123;</span><br><span class="line">    m_row = <span class="number">0</span>;</span><br><span class="line">    m_col = <span class="number">0</span>;</span><br><span class="line">    matrix_p = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line">## 需求②：构造一个指定行数和列数的零矩阵</span><br><span class="line">&amp;emsp;&amp;emsp;这里行数和列数比较好处理，直接在参数中传进去就好了，关键是怎么构建出一个二维数组，先看看代码：</span><br><span class="line">```c++</span><br><span class="line">Matrix::Matrix(<span class="keyword">int</span> row,<span class="keyword">int</span> col)  <span class="comment">//参数有两个，分别为行数和列数</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(row&gt;<span class="number">0</span> &amp;&amp; col &gt;<span class="number">0</span>)  <span class="comment">//检验一下输传入的行数和列数是否合理（大于0）</span></span><br><span class="line">    &#123;</span><br><span class="line">        m_row = row;    <span class="comment">//给行数赋值</span></span><br><span class="line">        m_col = col;    <span class="comment">//给列数赋值</span></span><br><span class="line">      <span class="comment">/*下面几步开始处理矩阵（二位数组），相当于“double matrix_p[m_row][m_col] = &#123;0&#125;”*/</span></span><br><span class="line">        matrix_p = <span class="keyword">new</span> <span class="keyword">double</span>*[m_row];  <span class="comment">//首先指针指向一个一维数组（数组里面元素为指针）</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">0</span>;r&lt;m_row;r++)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix_p[r] = <span class="keyword">new</span> <span class="keyword">double</span>[m_col];  <span class="comment">//然后一维数组中每一个元素（指针）再指向一个一维数组</span></span><br><span class="line">	  <span class="comment">/*这样就申请了一个动态二位数组*/</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> c=<span class="number">0</span>;c&lt;m_col;c++)</span><br><span class="line">            &#123;</span><br><span class="line">                matrix_p[r][c] = <span class="number">0</span>;   <span class="comment">//最后对矩阵每一个元素赋0值</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        error(<span class="number">1</span>);  <span class="comment">//自己写的函数：这里当行数和列数不合理时发送一个错误，并且退出程序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这里通过动态生成的二位数组与正常创建的二维数组（如：double matrix_p[m_row][m_col]）不同，严格来说这样的二位数组的内存空间是不连续的（随便翻了个<a href="https://zhidao.baidu.com/question/160680492.html" target="_blank" rel="noopener">百度知道</a>）。</p>
+<h2 id="需求③：不仅指定行数和列数，还通过数组（一维）确定矩阵元素的值"><a href="#需求③：不仅指定行数和列数，还通过数组（一维）确定矩阵元素的值" class="headerlink" title="需求③：不仅指定行数和列数，还通过数组（一维）确定矩阵元素的值"></a>需求③：不仅指定行数和列数，还通过数组（一维）确定矩阵元素的值</h2><p>&emsp;&emsp;要传递矩阵元素的值给构造函数，可以把它们放在一个容器（数组，vector等）里面传递，这里为了简单选用了一维数组。<br><br><br>&emsp;&emsp;对比需求②，这里只有两处不同：一是参数从两个变成三个；而是赋值不是赋0值，而是赋数组里面的值。看代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Matrix::Matrix(<span class="keyword">int</span> row,<span class="keyword">int</span> col,<span class="keyword">double</span> *input_matrix)</span><br><span class="line"><span class="comment">//参数多了一个double类型的一维数组</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(row&gt;<span class="number">0</span> &amp;&amp; col &gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        m_row = row;</span><br><span class="line">        m_col = col;</span><br><span class="line">        matrix_p = <span class="keyword">new</span> <span class="keyword">double</span>*[m_row];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">0</span>;r&lt;m_row;r++)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix_p[r] = <span class="keyword">new</span> <span class="keyword">double</span>[m_col];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> c=<span class="number">0</span>;c&lt;m_col;c++)</span><br><span class="line">            &#123;</span><br><span class="line">                matrix_p[r][c] = input_matrix[r*m_col+c];</span><br><span class="line">                <span class="comment">//把数组的值赋给矩阵，表达式r*m_col+c把矩阵中元素的位置与一维数组中的元素位置对应起来。</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        error(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;看着很合理，但是却存在一个漏洞：如果 传入的数组的长度小于矩阵的行数与列数的积 的话，就会发生数组越界（<a href="http://phonzia.github.io/2016/07/C++%E4%B8%AD%E7%9A%84%E6%AE%B5%E9%94%99%E8%AF%AF-%E4%B8%80-%E6%95%B0%E7%BB%84%E8%B6%8A%E7%95%8C" target="_blank" rel="noopener">一篇别人的文章</a>），因为 r*m_col+c 已经大于数组长度了。我猜用vector的话应该可以避免这个问题吧（没试过）。接下来介绍另一种方式：</p>
+<h2 id="需求④：通过字符串确定矩阵元素的值"><a href="#需求④：通过字符串确定矩阵元素的值" class="headerlink" title="需求④：通过字符串确定矩阵元素的值"></a>需求④：通过字符串确定矩阵元素的值</h2><p>&emsp;&emsp;这里我参考了<a href="http://reference.wolfram.com/language/ref/MatrixForm.html" target="_blank" rel="noopener">Wolfram输入矩阵的格式</a>,（“$ \{ \{ ∗,…,∗\},…,\{∗,…,∗\}\} $”，其实就是我们初始化二维数组时的格式嘛）。<br>&emsp;&emsp;这样传递的话，其实就是要在函数里一个个地读字符串里面的字符，读取到相应的数字就把它放到矩阵中，读取到其他标记符（大括号与逗号）就作出相应的处理，所以这个函数里面应该是有一大堆判断（if）的。<br>&emsp;&emsp;看一下代码（这个比较长，要分几段）：<br>&emsp;&emsp;首先是一大堆中间变量：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//"&#123;&#123;*,...,*&#125;,...,&#123;*,...,*&#125;&#125;"  //格式</span></span><br><span class="line">Matrix::Matrix(<span class="built_in">string</span> psd_m)  <span class="comment">//传入字符串（psd_m：伪矩阵）</span></span><br><span class="line">&#123;</span><br><span class="line">    m_row = <span class="number">0</span>;   <span class="comment">//行数</span></span><br><span class="line">    m_col = <span class="number">0</span>;   <span class="comment">//列数</span></span><br><span class="line">    <span class="keyword">int</span> col_iter = <span class="number">0</span>;  <span class="comment">//另一个暂时的列数</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; iter;  <span class="comment">//因为行数和列数未定，所以用一个向量把读到的数字先存起来</span></span><br><span class="line">    <span class="keyword">int</span> digit_left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> digit_right = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> in_bracket = <span class="number">0</span>;    <span class="comment">//是否在里层的大括号</span></span><br><span class="line">    <span class="keyword">bool</span> in_bracket_out = <span class="number">0</span>; <span class="comment">//是否在外层的大括号</span></span><br><span class="line">    <span class="keyword">bool</span> is_double = <span class="number">0</span>;     <span class="comment">//是否小数</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;接下来读字符串里面字符（先处理外层大括号）：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;psd_m.length();i++) <span class="comment">//一个一个读取字符串的字符</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span>(psd_m[i] == <span class="string">' '</span>) <span class="comment">//有空格时忽略</span></span><br><span class="line">           <span class="keyword">continue</span>;</span><br><span class="line">       <span class="keyword">else</span> <span class="keyword">if</span>(psd_m[i]==<span class="string">'&#123;'</span> &amp;&amp; !in_bracket_out &amp;&amp; !in_bracket)</span><br><span class="line">       <span class="comment">//读到左括号，但是又不在外括号里又不在里括号里，那么这个就是最左边的括号了</span></span><br><span class="line">       &#123;</span><br><span class="line">           in_bracket_out = <span class="number">1</span>;  <span class="comment">//意思是在外层括号里</span></span><br><span class="line">           <span class="keyword">continue</span>; <span class="comment">//任务完成，读取下一个</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span> <span class="keyword">if</span>(psd_m[i]==<span class="string">'&#125;'</span> &amp;&amp; in_bracket_out &amp;&amp; !in_bracket)</span><br><span class="line">       <span class="comment">//读到右括号，在外层括号里且不在里层括号里，那么这个就是最右边的括号了</span></span><br><span class="line">       &#123;</span><br><span class="line">           m_row++; <span class="comment">//行数加一（因为最后一行没有逗号标记）</span></span><br><span class="line"></span><br><span class="line">           in_bracket_out = <span class="number">0</span>; <span class="comment">//意思是不在外层括号里了</span></span><br><span class="line">           <span class="keyword">continue</span>; <span class="comment">//读下一个（我认为这里可以break了，忘记了当时是怎么想的了）</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span> <span class="keyword">if</span>(psd_m[i]==<span class="string">','</span> &amp;&amp; !in_bracket &amp;&amp; in_bracket_out)</span><br><span class="line">       <span class="comment">//读到逗号，在外层括号里，不在里层括号里，这个就是分隔两个里括号的逗号了</span></span><br><span class="line">       &#123;</span><br><span class="line">           m_row++; <span class="comment">//行数加一（不是最后一行的后面都有这个逗号）</span></span><br><span class="line">           <span class="keyword">continue</span>; <span class="comment">//读下一个</span></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;接着处理里括号与数字（一起来了，有点长）：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(in_bracket_out) <span class="comment">//现在在外括号里面了</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(psd_m[i]==<span class="string">'&#123;'</span> &amp;&amp; !in_bracket)</span><br><span class="line">            <span class="comment">//如果读到左括号且不在里括号里的话，这个就是里括号的最左端，对于矩阵来说是新的一行</span></span><br><span class="line">            &#123;</span><br><span class="line">                in_bracket = <span class="number">1</span>; <span class="comment">//表示在里层括号里</span></span><br><span class="line">                <span class="keyword">continue</span>; <span class="comment">//读下一个</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(psd_m[i]==<span class="string">'&#125;'</span> &amp;&amp; in_bracket)</span><br><span class="line">            <span class="comment">//读到右括号且在里括号里，就是里括号的最右端了，</span></span><br><span class="line">            <span class="comment">//这个比较复杂，因为要判断里括号里数字的个数和列数能不能对上</span></span><br><span class="line">            &#123;</span><br><span class="line">                col_iter++; <span class="comment">//暂时存放列数的中间变量加一（这里是最后一个了，其余的在下面处理逗号那一部分里）</span></span><br><span class="line">                <span class="keyword">if</span>(!m_col) m_col = col_iter; <span class="comment">//如果这是列数为0的话（就是第一行了），把这个最终的出来的数（第一行里括号里数字个数）赋给列数</span></span><br><span class="line">                <span class="keyword">if</span>(m_col != col_iter) <span class="comment">//否则如果这个数与列数不相等的话</span></span><br><span class="line">                &#123;</span><br><span class="line">                    error(<span class="number">5</span>); <span class="comment">//报错退出</span></span><br><span class="line">                    <span class="comment">//emm后面的可忽略，因为之前我报错是没退出的。。。</span></span><br><span class="line">                    m_col = <span class="number">0</span>;  </span><br><span class="line">                    m_row = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                col_iter = <span class="number">0</span>;  <span class="comment">//暂时没它的事了，先清零</span></span><br><span class="line"></span><br><span class="line">                iter.push_back(num); <span class="comment">//把得到的数字放进向量里（读数字的操作在下面，这个是这一行的最后一个了）</span></span><br><span class="line">                digit_left = <span class="number">0</span>;  <span class="comment">//清零</span></span><br><span class="line">                digit_right = <span class="number">0</span>; <span class="comment">//清零</span></span><br><span class="line">                is_double = <span class="number">0</span>;   <span class="comment">//清零</span></span><br><span class="line">                num = <span class="number">0</span>;         <span class="comment">//清零</span></span><br><span class="line">                in_bracket = <span class="number">0</span>;  <span class="comment">//意思是已经不在里括号里了</span></span><br><span class="line">                <span class="keyword">continue</span>;  <span class="comment">//读取下一个</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(psd_m[i]==<span class="string">','</span> &amp;&amp; in_bracket)</span><br><span class="line">            <span class="comment">//读到逗号，且在里括号里，这个逗号就是用来分隔两个数字的了</span></span><br><span class="line">            &#123;</span><br><span class="line">                col_iter++;  <span class="comment">//暂时存放列数的中间变量加一（与上面那个作用一样）</span></span><br><span class="line"></span><br><span class="line">                iter.push_back(num); <span class="comment">//把得到的数字放进向量里（读数字的操作在下面）</span></span><br><span class="line">                digit_left = <span class="number">0</span>;  <span class="comment">//清零</span></span><br><span class="line">                digit_right = <span class="number">0</span>; <span class="comment">//清零</span></span><br><span class="line">                is_double = <span class="number">0</span>;   <span class="comment">//清零</span></span><br><span class="line">                num = <span class="number">0</span>;         <span class="comment">//清零</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(psd_m[i]==<span class="string">'.'</span> &amp;&amp; in_bracket)</span><br><span class="line">            <span class="comment">//读到小数点，在里括号里</span></span><br><span class="line">            &#123;</span><br><span class="line">                is_double = <span class="number">1</span>;  <span class="comment">//标志遇到小数</span></span><br><span class="line">                <span class="keyword">continue</span>;       <span class="comment">//读下一个</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">/*下面开始处理数字*/</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(psd_m[i]&gt;=<span class="string">'0'</span> &amp;&amp; psd_m[i]&lt;=<span class="string">'9'</span> &amp;&amp; in_bracket &amp;&amp; !is_double)</span><br><span class="line">            <span class="comment">//读到0~9的其中一个数，在里括号里且未读到小数点（暂时还是整数）</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> iter_num = (<span class="keyword">int</span>)psd_m[i] - (<span class="keyword">int</span>)<span class="string">'0'</span>; <span class="comment">//字符转数字</span></span><br><span class="line">                num = num*<span class="built_in">pow</span>(<span class="number">10</span>,digit_left) + iter_num; <span class="comment">//接到前面未读完的数的后面（数学问题）</span></span><br><span class="line">                digit_left++; <span class="comment">//小数点左边（整数位数）加一</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(psd_m[i]&gt;=<span class="string">'0'</span> &amp;&amp; psd_m[i]&lt;=<span class="string">'9'</span> &amp;&amp; in_bracket &amp;&amp; is_double)</span><br><span class="line">            <span class="comment">//读到0~9的其中一个数，在里括号里且已经读到小数点（这个是小数了）</span></span><br><span class="line">            &#123;</span><br><span class="line">                digit_right++; <span class="comment">//小数点右边（小数位数）加一(这个顺序问题。。很难解释。。)</span></span><br><span class="line">                <span class="keyword">int</span> iter_num = (<span class="keyword">int</span>)psd_m[i] - (<span class="keyword">int</span>)<span class="string">'0'</span>; <span class="comment">//符号转数字</span></span><br><span class="line">                num = num + iter_num*<span class="built_in">pow</span>(<span class="number">10</span>,(<span class="number">-1</span>)*digit_right); <span class="comment">//接到前面未读完的数的后面（还是数学问题）</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(in_bracket)</span><br><span class="line">            <span class="comment">//上面的都读不到，且在里括号里</span></span><br><span class="line">            &#123;</span><br><span class="line">                error(<span class="number">3</span>); <span class="comment">//报错，退出</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">            <span class="comment">//上面的都读不到，且不在里括号里</span></span><br><span class="line">            &#123;</span><br><span class="line">                error(<span class="number">4</span>); <span class="comment">//报错，退出</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;最后读到的数都按顺序放在向量里了，把向量里的数放到矩阵里：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    matrix_p = <span class="keyword">new</span> <span class="keyword">double</span>*[m_row];  <span class="comment">//创建二维数组的老方法了</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">0</span>;r&lt;m_row;r++)</span><br><span class="line">    &#123;</span><br><span class="line">        matrix_p[r] = <span class="keyword">new</span> <span class="keyword">double</span>[m_col];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> c=<span class="number">0</span>;c&lt;m_col;c++)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix_p[r][c] = iter[r*m_col+c]; <span class="comment">//向量的数放进矩阵</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;（ps：上面的代码是可以直接拼在一起的，所以不存在括号不对的情况）</p>
+<h2 id="需求⑤：构造特殊的方阵（比如单位矩阵）"><a href="#需求⑤：构造特殊的方阵（比如单位矩阵）" class="headerlink" title="需求⑤：构造特殊的方阵（比如单位矩阵）"></a>需求⑤：构造特殊的方阵（比如单位矩阵）</h2><p>&emsp;&emsp;如果用上面的方法构造一个100✕100的单位矩阵的话，怕不是要打到手软了，能不能用简单的方法，比如“Matrix I(“I”,100);”？肯定可以啦，先看代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Matrix::Matrix(<span class="built_in">string</span> mark_s,<span class="keyword">int</span> mark_i)  <span class="comment">//参数有两个，前面的是标记的字符，后面的是方阵的大小。</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(mark_s==<span class="string">"I"</span>)  <span class="comment">//如果检测到字符是“I”的话，构建一个单位矩阵(我好像忘了判断mark_i是否合理了。。)</span></span><br><span class="line">    &#123;</span><br><span class="line">        m_row = mark_i;  <span class="comment">//方阵的行数和列数相等</span></span><br><span class="line">        m_col = mark_i;</span><br><span class="line"></span><br><span class="line">        matrix_p = <span class="keyword">new</span> <span class="keyword">double</span>*[m_row];  <span class="comment">//同样的方法动态生成二维数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">0</span>;r&lt;m_row;r++)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix_p[r] = <span class="keyword">new</span> <span class="keyword">double</span>[m_col];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> c=<span class="number">0</span>;c&lt;m_col;c++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(c == r)</span><br><span class="line">                &#123;</span><br><span class="line">                    matrix_p[r][c] = <span class="number">1</span>;  <span class="comment">//对角线上元素为1</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    matrix_p[r][c] = <span class="number">0</span>;  <span class="comment">//其他元素为0</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这个和前面的类似，就不用多说了，只是漏了判断mark_i是否大于0（现在懒得改- -）。</p>
+<hr>
+<h1 id="复制函数"><a href="#复制函数" class="headerlink" title="复制函数"></a>复制函数</h1><hr>
+<p>&emsp;&emsp;方法类似，逐个元素复制，直接上代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Matrix::Matrix(<span class="keyword">const</span> Matrix &amp;other)</span><br><span class="line">&#123;</span><br><span class="line">    m_row = other.m_row;</span><br><span class="line">    m_col = other.m_col;</span><br><span class="line"></span><br><span class="line">    matrix_p = <span class="keyword">new</span> <span class="keyword">double</span>*[m_row];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">0</span>;r&lt;m_row;r++)</span><br><span class="line">    &#123;</span><br><span class="line">        matrix_p[r] = <span class="keyword">new</span> <span class="keyword">double</span>[m_col];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> c=<span class="number">0</span>;c&lt;m_col;c++)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix_p[r][c] = other.matrix_p[r][c];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h1><hr>
+<p>&emsp;&emsp;就是一个个地delete，最后把行数和列数定为0（相当于变为空矩阵），代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Matrix::~Matrix()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">0</span>;r&lt;m_row;r++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span> matrix_p[r];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> matrix_p;</span><br><span class="line">    m_row = <span class="number">0</span>;</span><br><span class="line">    m_col = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
+<p>&emsp;&emsp;写了这么多，我觉得亮点只有用字符串构造那个（毕竟是我当时突发奇想的，感觉用这个可以写一个脚本了），但是当时是作为复习写的，要求也不可以太高啦。<br>&emsp;&emsp;以上写的效率不一定是最高的，但基本上都是能用的。<br><br><br><br><br>ps：相关链接    ↓<br><br><br>&emsp;&emsp;<a href="https://github.com/ToverPomelo/Class_Matrix" target="_blank" rel="noopener">github上的代码</a><br>&emsp;&emsp;<a href="http://blog.l-tover.xyz/2018/01/08/%E5%86%99%E4%BA%86%E4%B8%AA%E7%9F%A9%E9%98%B5%E7%B1%BB-0/" target="_blank" rel="noopener">写了个矩阵类</a></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-03-05T08:34:16.447Z" itemprop="dateUpdated">2018-03-05 16:34:16</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/01/31/c-矩阵类-初阶-0/" target="_blank" rel="external">http://yoursite.com/2018/01/31/c-矩阵类-初阶-0/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Tover">
+            Tover
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性代数/">线性代数</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/31/c-矩阵类-初阶-0/&title=《c++矩阵类-初阶[0]》 — 编程〲雜事&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/31/c-矩阵类-初阶-0/&title=《c++矩阵类-初阶[0]》 — 编程〲雜事&source=&emsp;&emsp;构造函数怎么写好?" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/02/04/利用旧安卓机打造伪家用Linux服务器/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">利用旧安卓机打造伪家用Linux服务器</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2018/01/08/写了个矩阵类/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">写了个矩阵类</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#构造函数："><span class="post-toc-number">2.</span> <span class="post-toc-text">构造函数：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求①：构造一个空的矩阵"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">需求①：构造一个空的矩阵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求③：不仅指定行数和列数，还通过数组（一维）确定矩阵元素的值"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">需求③：不仅指定行数和列数，还通过数组（一维）确定矩阵元素的值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求④：通过字符串确定矩阵元素的值"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">需求④：通过字符串确定矩阵元素的值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求⑤：构造特殊的方阵（比如单位矩阵）"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">需求⑤：构造特殊的方阵（比如单位矩阵）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#复制函数"><span class="post-toc-number">3.</span> <span class="post-toc-text">复制函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#析构函数"><span class="post-toc-number">4.</span> <span class="post-toc-text">析构函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        想吃雪糕了。。。
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/reward-wechat.png" data-alipay="/img/reward-alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://tover-dl.blogspot.com/" target="_blank">Another blogger(Google)</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Tover &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/31/c-矩阵类-初阶-0/&title=《c++矩阵类-初阶[0]》 — 编程〲雜事&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/31/c-矩阵类-初阶-0/&title=《c++矩阵类-初阶[0]》 — 编程〲雜事&source=&emsp;&emsp;构造函数怎么写好?" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aS27DMAwFwNz/0inQVYE2yiPpFLA0WhmtPxotGInk4xGP5/dI7vl55+/r9XuSe0YDAwPjtozncqw/kDz7aiGq312/HwMD4wTGOsiug2kSdquLks8NAwMDY32dTCu/EwMDA+MTjOq0eu/HwMDAyA+T8yn2toYXn8UxMDBuyKgWBv7z+oP1DQwMjJswnsUx+Xw+ufKsMDAwtmZMUl3r5Nrk2WpLBwYGBkbCSyad45vlAQwMjIMZkyRaXkJIluBNaMbAwNiaMQ92eeNXHo6rx2kMDIxdGXmBMJl0cuDsLcqb5cbAwDiA0dtlVQsJSVDuYTAwME5jJA8n1+s3T8L3H3/BwMDYmjE/TObhdb5ZfLPcGBgYWzMmjVzlrF4rbTdqNcPAwLg5o5fcr4bXXjPZ+s0YGBinMaLo20qQTX4HCltPDAyMrRnVAmTysV6iLX/25UJgYGBsyrj2HJxv8nrtHW862jAwMDZlJGn3edlgnsKLCgYYGBibMnrJsnxyvXRetZCJgYFxDqPX4FVtKZv89+X9GBgYWzPybdlVR828CFHdMmJgYOzKeBZHQk1KnvlTzR0uBgbGRoxqsCuk6Qebv3zqGBgY5zCqQfZa2FWpPQwMjBMY8yB71fZxdJTFwMA4njEvN/aWY/3DgIGBgZEkzqobx0njBQYGxsmMXjEgf0Oehuv9BQMDY29GNTU26uZoNXlc9RUMDIwbMr4A5u6Ems6Oka8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.2.6"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.2.6"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.2.6"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.2.6"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.2.6"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/js/plugins/leancloud_visitors.js?v=1.2.6"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>克拉默法则的浅谈 | 编程〲雜事</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="线性代数,数学">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.2.6">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"pDVrEBR2kfGnEETJ9ip0RKEu-gzGzoHsz","app_key":"XkCVLMRoInrzWpAQYAQCCAhv","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"pDVrEBR2kfGnEETJ9ip0RKEu-gzGzoHsz","appkey":"XkCVLMRoInrzWpAQYAQCCAhv","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"664514882@qq.com","repo":"gitment","oauth":{"client_id":"3d5cbbc3baa089167063","client_secret":"cb179017b6ff87215e0c6e02a31d611ebd6a8629"},"perPage":10}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115646768-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115646768-1');
+</script>
+
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tover</h5>
+          <a href="mailto:q664514882@gmail.com" title="q664514882@gmail.com" class="mail">
+            
+              <span>q</span>
+            
+              <span>6</span>
+            
+              <span>6</span>
+            
+              <span>4</span>
+            
+              <span>5</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>8</span>
+            
+              <span>2</span>
+            
+              <span>@</span>
+            
+              <span>g</span>
+            
+              <span>m</span>
+            
+              <span>a</span>
+            
+              <span>i</span>
+            
+              <span>l</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/codefine" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>克拉默法则的浅谈</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">克拉默法则的浅谈</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-25T04:48:35.000Z" itemprop="datePublished" class="page-time">
+  2017-12-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math数学相关/">Math数学相关</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+
+<div class="container body-wrap">
+    <article id="post-克拉默法则的浅谈"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">克拉默法则的浅谈</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-25 12:48:35" datetime="2017-12-25T04:48:35.000Z"  itemprop="datePublished">2017-12-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math数学相关/">Math数学相关</a></li></ul>
+
+
+
+            
+	<span id="/2017/12/25/克拉默法则的浅谈/" class="leancloud_visitors" data-flag-title="克拉默法则的浅谈" title="克拉默法则的浅谈">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/2017/12/25/克拉默法则的浅谈/#comment">
+            <span class="valine-comment-count" data-xid="/2017/12/25/克拉默法则的浅谈/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>看懂这个可能需要一点线性代数基本知识。</p>
+<a id="more"></a>
+<h1 id="Cramer’s-Rule能吃吗？"><a href="#Cramer’s-Rule能吃吗？" class="headerlink" title="Cramer’s Rule能吃吗？"></a>Cramer’s Rule能吃吗？</h1><p>&emsp;&emsp;通常来说，我们解一个线性方程组的时候，都会用高斯消元法,因为消元法简单、效率高。但是有没有不借助消元的解法？Cramer’s Rule就是一个例子。</p>
+<h1 id="关键思想-Key-idea"><a href="#关键思想-Key-idea" class="headerlink" title="关键思想(Key idea)"></a>关键思想(Key idea)</h1><p>&emsp;&emsp;我们拿3✕3矩阵来做个栗子：<br>&emsp;&emsp;对于Ax = b ,即：<br>$$<br>\begin{bmatrix}<br>    a_{11} &amp; a_{12} &amp; a_{13} \\<br>    a_{21} &amp; a_{22} &amp; a_{23} \\<br>    a_{31} &amp; a_{32} &amp; a_{33} \\<br>\end{bmatrix}<br>&ensp;<br>\begin{bmatrix}<br>    x_1 \\<br>    x_2 \\<br>    x_3 \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>\begin{bmatrix}<br>    b_1 \\<br>    b_2 \\<br>    b_3 \\<br>\end{bmatrix}<br>$$<br>&emsp;&emsp;我们可以拆开为：<br>$$<br>\begin{bmatrix}<br>    A<br>\end{bmatrix}<br>&ensp;<br>\begin{bmatrix}<br>    x_1 &amp; 0 &amp; 0 \\<br>    x_2 &amp; 1 &amp; 0 \\<br>    x_3 &amp; 0 &amp; 1 \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>\begin{bmatrix}<br>    b_1 &amp; a_{12} &amp; a_{13} \\<br>    b_2 &amp; a_{22} &amp; a_{23} \\<br>    b_3 &amp; a_{32} &amp; a_{33} \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>B_1&emsp;&emsp;(1)<br>$$</p>
+<p>$$<br>\begin{bmatrix}<br>    A<br>\end{bmatrix}<br>&ensp;<br>\begin{bmatrix}<br>    1 &amp; x_1 &amp; 0 \\<br>    0 &amp; x_2 &amp; 0 \\<br>    0 &amp; x_3 &amp; 1 \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>\begin{bmatrix}<br>    a_{11} &amp; b_1 &amp; a_{13} \\<br>    a_{21} &amp; b_2 &amp; a_{23} \\<br>    a_{31} &amp; b_3 &amp; a_{33} \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>B_2&emsp;&emsp;(2)<br>$$</p>
+<p>$$<br>\begin{bmatrix}<br>    A<br>\end{bmatrix}<br>&ensp;<br>\begin{bmatrix}<br>    1 &amp; 0 &amp; x_1 \\<br>    0 &amp; 1 &amp; x_2 \\<br>    0 &amp; 0 &amp; x_3 \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>\begin{bmatrix}<br>    a_{11} &amp; a_{12} &amp; b_1 \\<br>    a_{21} &amp; a_{22} &amp; b_2 \\<br>    a_{31} &amp; a_{32} &amp; b_3 \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>B_3&emsp;&emsp;(3)<br>$$</p>
+<h2 id="怎么拆成这样的"><a href="#怎么拆成这样的" class="headerlink" title="怎么拆成这样的?"></a>怎么拆成这样的?</h2><p>&emsp;&emsp;以$(1)$为例，那个 $A$ 右边的矩阵其实就是把单位矩阵 $I$ 中第1列换成 $x$ 。<br>$$<br>\begin{bmatrix}<br>    1 &amp; 0 &amp; 0 \\<br>    0 &amp; 1 &amp; 0 \\<br>    0 &amp; 0 &amp; 1 \\<br>\end{bmatrix}<br>&ensp;-&gt;&ensp;<br>\begin{bmatrix}<br>    x_1 &amp; 0 &amp; 0 \\<br>    x_2 &amp; 1 &amp; 0 \\<br>    x_3 &amp; 0 &amp; 1 \\<br>\end{bmatrix}<br>$$<br>&emsp;&emsp;$A$ 与这个矩阵作用后便产生一个新矩阵，不难发现这个矩阵是 $A$ 的第一列替换为 $b$ ,我们把这个新矩阵记作 $B_1$​​ 。<br>$$<br>\begin{bmatrix}<br>    a_{11} &amp; a_{12} &amp; a_{13} \\<br>    a_{21} &amp; a_{22} &amp; a_{23} \\<br>    a_{31} &amp; a_{32} &amp; a_{33} \\<br>\end{bmatrix}<br>&ensp;-&gt;&ensp;<br>\begin{bmatrix}<br>    b_1 &amp; a_{12} &amp; a_{13} \\<br>    b_2 &amp; a_{22} &amp; a_{23} \\<br>    b_3 &amp; a_{32} &amp; a_{33} \\<br>\end{bmatrix}<br>$$<br>&emsp;&emsp;$(2)$和$(3)$的做法与这个类似，只不过$(2)$是替换第二列，$(3)$是替换第三列。</p>
+<h2 id="为什么要这样拆"><a href="#为什么要这样拆" class="headerlink" title="为什么要这样拆"></a>为什么要这样拆</h2><p>&emsp;&emsp;我们来看看它们的行列式(<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E5%88%97%E5%BC%8F" target="_blank" rel="noopener">Determinant</a>)吧。<br>&emsp;&emsp;这里要用到行列式乘法:<br>$$<br>detAB = detA × detB<br>$$<br>&emsp;&emsp;如何求行列式这里就不多说了，接下来分析一下上面式子的行列式：（这么多 0 用<a href="https://zh.wikipedia.org/wiki/%E5%AD%90%E5%BC%8F%E5%92%8C%E4%BD%99%E5%AD%90%E5%BC%8F" target="_blank" rel="noopener">余子式</a>算就好啦）</p>
+<p>$$<br>det&ensp;<br>\begin{bmatrix}<br>    x_1 &amp; 0 &amp; 0 \\<br>    x_2 &amp; 1 &amp; 0 \\<br>    x_3 &amp; 0 &amp; 1 \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>x_1<br>$$</p>
+<p>$$<br>det&ensp;<br>\begin{bmatrix}<br>    1 &amp; x_1 &amp; 0 \\<br>    0 &amp; x_2 &amp; 0 \\<br>    0 &amp; x_3 &amp; 1 \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>x_2<br>$$</p>
+<p>$$<br>det&ensp;<br>\begin{bmatrix}<br>    1 &amp; 0 &amp; x_1 \\<br>    0 &amp; 1 &amp; x_2 \\<br>    0 &amp; 0 &amp; x_3 \\<br>\end{bmatrix}<br>&ensp;=&ensp;<br>x_3<br>$$<br>&emsp;&emsp;两边求行列式便可以得到：</p>
+<p>$$<br>(detA)(x_1) = detB_1<br>$$</p>
+<p>$$<br>(detA)(x_2) = detB_2<br>$$</p>
+<p>$$<br>(detA)(x_3) = detB_3<br>$$<br>&emsp;&emsp;两边除以 $detA$ 就可以求出向量 $x$ 中的每一个数：</p>
+<p>$$<br>x_1 = detB_1/detA<br>$$</p>
+<p>$$<br>x_2 = detB_2/detA<br>$$</p>
+<p>$$<br>x_3 = detB_3/detA<br>$$<br>&emsp;&emsp;也就是说 $x = \begin{bmatrix} detB_1/detA \\ detB_2/detA \\ detB_3/detA \\ \end{bmatrix} $<br>&emsp;&emsp;当然，可以这样子操作的前提是detAdetA ≠ 0,分母不能为0。</p>
+<blockquote>
+<p>&emsp;&emsp;  网上对$detA=0$时的情况说得不多（大多都是说这是前提条件），本来打算略过的，但想想还是可以稍微谈一下的，因为如果$detA=0$的话，$detBi=0$ 对于任意$i=1,2,…,n$都成立。<br>&emsp;&emsp;如果$detA=0$的话，$A$就是<a href="https://baike.baidu.com/item/%E5%A5%87%E5%BC%82%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">奇异矩阵</a>了，$A$是奇异矩阵的话就说明存在一组不全为零的 $α_1 α_2 …α_n$ 使得<br>$$<br>α_1a_1 + α_2a_2 + … + α_na_n = 0 &emsp;&emsp; (∗)<br>$$<br>&emsp;&emsp;这里的$ai(i=1,2,…,n)$是$A$的各列，下面也是，顺便引用一下<a href="https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E7%9B%B8%E5%85%B3" target="_blank" rel="noopener">百度百科</a>的说法<br>&emsp;&emsp;由于$Ax=b$，所以有<br>$$<br>x_1a_1 + x_2a_2 + … + x_na_n = b<br>$$<br>&emsp;&emsp;（注意这里的$xi(i=1,2,…,n)$是数不是向量），那么当 $A$ 的第 $i$ 列被 $b$ 替换时，就有<br>$$<br>[a_1 … a_i−1 &ensp; b &ensp; a_i+1 …a_n]<br>$$<br>&emsp;&emsp;把 $b$ 代进去就有<br>$$<br>[a_1 … (x_1a_1 + x_2a_2 + … + x_na_n) … a_n]<br>$$<br>记这个矩阵为 $Bi$ 吧，接下来要说明 $Bi$ 也是奇异矩阵（$detBi=0$）,同样，如果 $Bi$ 为奇异矩阵的话，就是存在一组不全为零的 $β_1 β_2 … β_n$ 使得<br>$$<br>β_1a_1 + … + β_i(x_1a_1+…+x_na_n) + … + β_na_n = 0<br>$$<br>&emsp;&emsp;太乱了化简一下（这里因为位置问题省略了很多字母。。。机智的你应该可以看得懂的！）<br>$$<br>(β_ix_1 + β_1)a_1 + … + (β_ix_n + β_n)a_n = 0 &emsp;&emsp; (∗∗)<br>$$<br>&emsp;&emsp;所以可以看出如果<br>$$<br>β_ix_j + β_j = α_j &emsp; (j=1,2,…,n)<br>$$<br>&emsp;&emsp;的话，式子 $(∗∗)$ 就等同于式子 $(∗)$ 了，也就是式子 $(∗∗)$ 是成立的。<br>&emsp;&emsp;也就是说当 $detA=0$ 时，$detBi=0$ ，就有 $0✕x = 0$ ,这也说明了当 $A$ 为奇异矩阵时，$x$ 的解不唯一。</p>
+<hr>
+<p>&emsp;&emsp;作者：“上面的就是一派胡言!”</p>
+</blockquote>
+<h1 id="如何解一个矩阵？"><a href="#如何解一个矩阵？" class="headerlink" title="如何解一个矩阵？"></a>如何解一个矩阵？</h1><p>&emsp;&emsp;注意，上面解出来的 $x$ 只是一个向量，那如何解一个矩阵？比如 $AB=C$ 。<br>&emsp;&emsp;这时我们可以把矩阵 $B$ 拆开：(注意这里$b_n$和$c_n$为向量)<br>$$<br>A &ensp; [b_1 &ensp; b_2 &ensp; … &ensp; b_n] &ensp; = &ensp; [c_1 &ensp; c_2 &ensp; … &ensp; c_n]<br>$$<br>&emsp;&emsp;于是：<br>$$<br>Ab_​i &ensp; = &ensp; c_i  &emsp; (i=1,2,…,n)<br>$$<br>&emsp;&emsp;这样就把一个矩阵拆成若干个向量，剩下的就与上面类似。</p>
+<h1 id="一个应用：求逆"><a href="#一个应用：求逆" class="headerlink" title="一个应用：求逆"></a>一个应用：求逆</h1><p>&emsp;&emsp;我们可以用克拉默法则求逆，其实就是求 $AA^{−1}=I$ ,于是这样这样那样那样，就得到：<br>$$<br>A^{-1}<br>&ensp;=&ensp;<br>\frac{C^T}{detA} \quad<br>$$<br>&emsp;&emsp;（$C$ 是 $A$ 的<a href="https://zh.wikipedia.org/wiki/%E9%A4%98%E5%9B%A0%E5%AD%90%E7%9F%A9%E9%99%A3" target="_blank" rel="noopener">代数余子式矩阵</a>）</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;虽然克拉默法则看起来很酷，但是其效率并不高（比消元慢多了），起码求行列式的一个较快的方法就是消元。</p>
+<hr>
+<p>&emsp;&emsp;另外，本文作者很水的，上面说的有错也不奇怪。有什么问题欢迎在评论区留言。</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-03-05T05:50:56.594Z" itemprop="dateUpdated">2018-03-05 13:50:56</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2017/12/25/克拉默法则的浅谈/" target="_blank" rel="external">http://yoursite.com/2017/12/25/克拉默法则的浅谈/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Tover">
+            Tover
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性代数/">线性代数</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/25/克拉默法则的浅谈/&title=《克拉默法则的浅谈》 — 编程〲雜事&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/25/克拉默法则的浅谈/&title=《克拉默法则的浅谈》 — 编程〲雜事&source=看懂这个可能需要一点线性代数基本知识。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/01/08/写了个矩阵类/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">写了个矩阵类</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2017/12/24/Hello-World/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World!</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Cramer’s-Rule能吃吗？"><span class="post-toc-number">1.</span> <span class="post-toc-text">Cramer’s Rule能吃吗？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#关键思想-Key-idea"><span class="post-toc-number">2.</span> <span class="post-toc-text">关键思想(Key idea)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#怎么拆成这样的"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">怎么拆成这样的?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要这样拆"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">为什么要这样拆</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何解一个矩阵？"><span class="post-toc-number">3.</span> <span class="post-toc-text">如何解一个矩阵？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一个应用：求逆"><span class="post-toc-number">4.</span> <span class="post-toc-text">一个应用：求逆</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        想吃雪糕了。。。
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/reward-wechat.png" data-alipay="/img/reward-alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://tover-dl.blogspot.com/" target="_blank">Another blogger(Google)</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Tover &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/25/克拉默法则的浅谈/&title=《克拉默法则的浅谈》 — 编程〲雜事&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/25/克拉默法则的浅谈/&title=《克拉默法则的浅谈》 — 编程〲雜事&source=看懂这个可能需要一点线性代数基本知识。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3awW7rMAwEwP7/T7vXBzzU2aWcopFGJyGJHY0OBEXq6yse1z/jp2/vf///PHnq4YGBgfGxjOt25L9J8Pmb6//FwMA4gHEfRvPgmCCTpedrw8DAwJjN2xCcbx8GBgbGyuuSxO6eh4GBgXHPyNO1PHTmgbg94mJgYJzGyP/g9+dv6W9gYGB8FOMqx33CNwvK1/LAwMDYmzErk80KZO8u22FgYOzKeOpo+pshGwMD4zRGm9K1n7SXNvKLF1F/AwMDYyNGHkZXrlDMGgZ5oomBgXEmY3YhI2k3rgTWaLMwMDA2YrQJ32xvkve3SWRxRwMDA2MjRltoy0PqU9fCooCLgYGxHaMNiG11KyetbCIGBsY5jCTty8v3eSCetTOjPBcDA2MjxuzA2bYT8vn9hr440GJgYBzDaIPdLOF7ao6BgbE3YyWBa59qGwn5JQ8MDIy9GXlS2F6nyEf7nhcbgYGBsSkjL9nnATffjlkmW1QNMTAwtmMkqdg72px5MyAKuBgYGJsy1pe+cs1ilkRiYGCcxlgJo/lTz4bsh1+NgYHxJxlXOfJA2SaaLRUDA+Mcxqx8P2sStMW4x5aOgYGxBWN2SaI91iaH3qX0EQMD4wBGe/bNG5DJs23RDQMDA6Nd6KzQ316neAHGwMDAKI+vs+QybwkUnVgMDIyNGLNltc8mrYL8SIyBgXEOo03gVg6lK9T1NBQDA+MDGd8Jy2qYIg3lwwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.2.6"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.2.6"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.2.6"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.2.6"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.2.6"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/js/plugins/leancloud_visitors.js?v=1.2.6"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    
+</body>
+</html>
