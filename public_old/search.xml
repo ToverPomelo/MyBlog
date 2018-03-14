@@ -3,6 +3,26 @@
   
     
     <entry>
+      <title>Chapter_8 笔记</title>
+      <link href="/2018/03/14/Chapter8%E7%AC%94%E8%AE%B0/"/>
+      <content type="html"><![CDATA[<p>&emsp;&emsp;算法导论第八章笔记——几个运行时间是线性的排序算法！<br><a id="more"></a></p><h1 id="8-1-基于比较的排序的下界"><a href="#8-1-基于比较的排序的下界" class="headerlink" title="8.1 基于比较的排序的下界"></a>8.1 基于比较的排序的下界</h1><p>&emsp;&emsp;任何基于比较的排序算法在最坏的情况下需要$\Omega(nlgn)$次比较。<br><br>&emsp;&emsp;证明：书上是通过一棵“比较树”(decision tree)证明的，<br><figure class="image-box">                <img src="deemo1.jpg" alt="decision tree" title="" class="">                <p>decision tree</p>            </figure><br>&emsp;&emsp;首先在这棵树中，每一个结点中的比较结果都会决定下一次的比较是在哪一个结点(比如根结点的$1:2$，结果是小于，所以下一次的比较就是它的左孩子)，也就是说每一层中都只会选一个结点来比较，所以排序一次要比较的次数与这棵树的高度有关。<br><br>&emsp;&emsp;按照书上的证明：令树的高度为$h$，叶子(reachable leaves)的个数为$l$，那么根据二叉树的性质(每一层都是上一层的两倍，$2^h$就是完全二叉树的叶子数了)，有：<br>$$<br>    l≤2^h<br>$$<br>&emsp;&emsp;然后因为decision tree的叶子其实是把输入的树的排列情况列出来，所以又有：<br>$$<br>    n!≤l<br>$$</p><blockquote><p>&emsp;&emsp;作者：“书上说是”≤”，其实我也认为是$n!=l$，不过这个也影响不大。”</p></blockquote><p>&emsp;&emsp;所以就有：<br>$$<br>    n!≤2^h<br>$$<br>&emsp;&emsp;两边取$lg$，得到(利用了P58的公式3.19)：<br>$$<br>    h≥lg(n!)=\Omega(nlgn)<br>$$</p><blockquote><p>&emsp;&emsp;作者：“这个比较简单，粗略带过。”</p></blockquote><h1 id="8-2-计数排序"><a href="#8-2-计数排序" class="headerlink" title="8.2 计数排序"></a>8.2 计数排序</h1><p>&emsp;&emsp;令需要排序的$n$个数的范围是从$0$到$k$整数，那么当$k=O(n)$时，计数排序需要的时间是$O(n)$。因为不是基于比较的，所以计数排序不受$\Omega(nlgn)$的限制，但是它需要对输入的数进行限制：要是整数。</p><h2 id="计数排序的过程"><a href="#计数排序的过程" class="headerlink" title="计数排序的过程"></a>计数排序的过程</h2><figure class="image-box">                <img src="deemo2.jpg" alt="书上的例子和代码" title="" class="">                <p>书上的例子和代码</p>            </figure><p>&emsp;&emsp;首先看书上的例子，很明显的看出数组$A$中的数的范围是从$0$到$5$，所以就得到$k=5$。</p><blockquote><p>&emsp;&emsp;作者：“我认为要找出$k$的话还应该要找出数组$A$中的最大值和最小值，不过反正找最大最小值也是要$\theta(n)$，这个影响不大。”<br>&emsp;&emsp;</p></blockquote>]]></content>
+      
+      <categories>
+          
+          <category> Algorithm算法相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法导论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>一个好消息，一个坏消息</title>
       <link href="/2018/03/11/%E4%B8%80%E4%B8%AA%E5%A5%BD%E6%B6%88%E6%81%AF%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%9D%8F%E6%B6%88%E6%81%AF/"/>
       <content type="html"><![CDATA[<p>&emsp;&emsp;如题↑<br><a id="more"></a></p><h1 id="好消息"><a href="#好消息" class="headerlink" title="好消息"></a>好消息</h1><p>&emsp;&emsp;感谢<a href="https://sg.godaddy.com/zh?ci=" target="_blank" rel="noopener">GoDaddy</a>(去你爹)，我终于拿回自己的域名了！以后我的博客域名就是：</p><center><a href="http://blog.tover.xyz" target="_blank" rel="noopener">blog.tover.xyz</a></center><h1 id="坏消息"><a href="#坏消息" class="headerlink" title="坏消息"></a>坏消息</h1><p>&emsp;&emsp;前几天加固态的时候不小心把Linux给格式化了(不要问我为什么- -)，因为忘了把博客的源文件备份，所以就是整个博客被我删了(- -)，花了一个星期才终于把博客重新搭了一遍。之前的文章或多或少会有一点不同，不过也每所谓啦！(反正之前也没什么人看的T T)</p>]]></content>
