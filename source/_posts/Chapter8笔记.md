@@ -5,7 +5,7 @@ tags:
 	- 算法导论
 categories:
 	- Algorithm算法相关
-src:
+src: 1.jpg
 ---
 &emsp;&emsp;算法导论第八章笔记——几个运行时间是线性的排序算法！
 <!--more-->
