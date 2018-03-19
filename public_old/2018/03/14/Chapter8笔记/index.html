@@ -300,7 +300,7 @@
 <p>&emsp;&emsp;作者：“至于为什么是这样，大佬们给我的解答是：<br>$$<br>    if&ensp;X_{i}=<br>    \begin{cases}<br>    a, &amp;Pr(a) \\<br>    b, &amp;Pr(b) \\<br>    ···, &amp;Pr(···) \\<br>    \end{cases}<br>    &ensp;then&ensp;f\left(X_{i}\right)=<br>    \begin{cases}<br>    f(a), &amp;Pr(a) \\<br>    f(b), &amp;Pr(b) \\<br>    f(···), &amp;Pr(···) \\<br>    \end{cases}<br>$$</p>
 </blockquote>
 <p>&emsp;&emsp;然后看$E\left[X_{ij}X_{ik} \right]$，因为这两个事件是独立的(互不影响)，所以它们乘积的期望等于它们期望的乘积(书附录的 C.24)也就是：<br>$$\begin{equation}\begin{aligned}<br>    E\left[X_{ij}X_{ik} \right] &amp;=E\left[X_{ij}\right]E\left[X_{ik} \right] \\<br>                    &amp;=\frac{1}{n}·\frac{1}{n} \\<br>                    &amp;=\frac{1}{n^2}<br>\end{aligned}\end{equation}$$&emsp;&emsp;最后把这两个东西代回去，就得到：<br>$$\begin{equation}\begin{aligned}<br>    E\left[n_i^2\right] &amp;=\sum_{j=1}^{n}E\left[X_{ij}^2\right] + \sum_{1≤j≤n}\sum_{1≤k≤n\\&ensp;k≠j}E\left[X_{ij}X_{ik}\right] \\<br>    &amp;=\sum_{j=1}^{n}\frac{1}{n} + \sum_{1≤j≤n}\sum_{1≤k≤n\\&ensp;k≠j}\frac{1}{n^2} \\<br>    &amp;=n·\frac{1}{n}+n(n-1)·\frac{1}{n^2} \\<br>    &amp;=1+\frac{n-1}{n} \\<br>    &amp;=2-\frac{1}{n} \\<br>\end{aligned}\end{equation}$$&emsp;&emsp;再把这个代回最初的那条式子：<br>$$\begin{equation}\begin{aligned}<br>    E[T(n)]<br>    &amp;=\theta(n)+\sum_{i=0}^{n-1}O(E\left[n_i^2\right]) \\<br>    &amp;=\theta(n)+\sum_{i=0}^{n-1}O(2-\frac{1}{n}) \\<br>    &amp;=\theta(n)+n·O(2-\frac{1}{n}) \\<br>    &amp;=\theta(n)+O(2n-1) \\<br>    &amp;=\theta(n)+O(n) \\<br>    &amp;= \theta(n)<br>\end{aligned}\end{equation}$$</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;以上的几个排序算法都打破了$\Omega(nlgn)$这个界限，但是这样付出的代价就是要对输入的数进行限制，即假设这些数的类型；而且即使它们是$\theta(n)$，也不见得一定会比$\theta(nlgn)$的快速排序、归并排序快，因为它们的系数没有被表示出来，某些算法(比如基数排序)的隐藏在$\theta(n)$中的系数就比较大，在一定的范围内还是没有快排这一类的排序算法快的，当然，如果$n$特别特别大的话$\theta(n)$的算法还是会比较快的。<br><br><br><br><br>ps：相关链接    ↓<br><br><br>&emsp;&emsp;<a href="https://blog.tover.xyz/2018/03/03/%E4%B8%BB%E5%AE%9A%E7%90%86%E6%B5%85%E8%B0%88/">主定理(Master Theorem)笔记</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;以上的几个排序算法都打破了$\Omega(nlgn)$这个界限，但是这样付出的代价就是要对输入的数进行限制，即假设这些数的类型；而且即使它们是$\theta(n)$，也不见得一定会比$\theta(nlgn)$的快速排序、归并排序快，因为它们的系数没有被表示出来，某些算法(比如基数排序)的隐藏在$\theta(n)$中的系数就比较大，在一定的范围内还是没有快排这一类的排序算法快的，当然，如果$n$特别特别大的话$\theta(n)$的算法还是会比较快的。<br><br><br><br><br>ps：相关链接    ↓<br><br><br>&emsp;&emsp;<a href="https://blog.tover.xyz/2018/03/03/%E4%B8%BB%E5%AE%9A%E7%90%86%E6%B5%85%E8%B0%88/">主定理(Master Theorem)笔记</a><br>&emsp;&emsp;<a href="https://blog.tover.xyz/2018/03/16/Chapter9%E7%AC%94%E8%AE%B0/">Chapter_9 笔记</a></p>
 
         </div>
         
@@ -308,7 +308,7 @@
     <div class="content">
         
 <span class="post-time">
-    最後更新時間：<time datetime="2018-03-15T09:34:22.319Z" itemprop="dateUpdated">2018-03-15 17:34:22</time>
+    Last updated: <time datetime="2018-03-19T06:36:13.539Z" itemprop="dateUpdated">2018-03-19 14:36:13</time>
 </span><br>
 
 
