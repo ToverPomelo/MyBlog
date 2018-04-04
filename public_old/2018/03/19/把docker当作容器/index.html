@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>把docker当作容器 | 编程〲雜事</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Linux">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.2.6">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"pDVrEBR2kfGnEETJ9ip0RKEu-gzGzoHsz","app_key":"XkCVLMRoInrzWpAQYAQCCAhv","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"pDVrEBR2kfGnEETJ9ip0RKEu-gzGzoHsz","appkey":"XkCVLMRoInrzWpAQYAQCCAhv","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"664514882@qq.com","repo":"gitment","oauth":{"client_id":"3d5cbbc3baa089167063","client_secret":"cb179017b6ff87215e0c6e02a31d611ebd6a8629"},"perPage":10}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115646768-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115646768-1');
+</script>
+
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tover</h5>
+          <a href="mailto:q664514882@gmail.com" title="q664514882@gmail.com" class="mail">
+            
+              <span>q</span>
+            
+              <span>6</span>
+            
+              <span>6</span>
+            
+              <span>4</span>
+            
+              <span>5</span>
+            
+              <span>1</span>
+            
+              <span>4</span>
+            
+              <span>8</span>
+            
+              <span>8</span>
+            
+              <span>2</span>
+            
+              <span>@</span>
+            
+              <span>g</span>
+            
+              <span>m</span>
+            
+              <span>a</span>
+            
+              <span>i</span>
+            
+              <span>l</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/codefine" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>把docker当作容器</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">把docker当作容器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-19T12:02:32.000Z" itemprop="datePublished" class="page-time">
+  2018-03-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux系统相关/">Linux系统相关</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+
+<div class="container body-wrap">
+    <article id="post-把docker当作容器"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">把docker当作容器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-19 20:02:32" datetime="2018-03-19T12:02:32.000Z"  itemprop="datePublished">2018-03-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux系统相关/">Linux系统相关</a></li></ul>
+
+
+
+            
+	<span id="/2018/03/19/把docker当作容器/" class="leancloud_visitors" data-flag-title="把docker当作容器" title="把docker当作容器">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/2018/03/19/把docker当作容器/#comment">
+            <span class="valine-comment-count" data-xid="/2018/03/19/把docker当作容器/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>&emsp;&emsp;docker实战，做一个安全的编译环境！<br><a id="more"></a><br>&emsp;&emsp;docker是什么？你可以把它看成一个容器、一个虚拟机、一个沙箱，当你需要运行一些可能会影响系统安全的应用或网站时，你可以把它放在docker容器里运行，以达到保护系统的目的。当然，docker的用途还有很多。<br>&emsp;&emsp;这篇文章就利用docker的这个特性做一个安全的编译环境。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>&emsp;&emsp;Linux系统的电脑或服务器一台、docker软件一个、gcc、g++或可用的编译器。</p>
+<h2 id="关于Linux"><a href="#关于Linux" class="headerlink" title="关于Linux"></a>关于Linux</h2><p>&emsp;&emsp;虽然docker是有Windows版本的，但是没办法啊，我用的是Linux啊！(看到这里很多Windows用户就掉头走了)<br>&emsp;&emsp;如果你有兴趣学习Linux的话，我推荐首选的是装双系统、然后是跑虚拟机、或者花钱买个服务器也行，最便宜的也就几块钱一个月。如果你已经在用的话，那么请继续看下去：</p>
+<h2 id="docker的安装"><a href="#docker的安装" class="headerlink" title="docker的安装"></a>docker的安装</h2><p>&emsp;&emsp;以我的Ubuntu为例，docker对Ubuntu是有要求的，要求系统要是64位的、内核要是3.10及以上，要查看Linux内核的话可以执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;如果内核版本不够的话可以升级一下，具体方法这里不多说了，然后就是安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install docker.io</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;就是这么简单- -<br>&emsp;&emsp;其他系统的安装方法和升级内核的方法可以参考<a href="https://segmentfault.com/a/1190000002485231" target="_blank" rel="noopener">这里</a>。<br>&emsp;&emsp;<a href="http://www.runoob.com/docker/ubuntu-docker-install.html" target="_blank" rel="noopener">这里</a>不仅提供了各系统的安装方法，还有docker的基本操作的教程。</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-03-19T13:55:30.677Z" itemprop="dateUpdated">2018-03-19 21:55:30</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/03/19/把docker当作容器/" target="_blank" rel="external">https://blog.tover.xyz/2018/03/19/把docker当作容器/</a>
+        
+    </div>
+    <footer>
+        <a href="https://blog.tover.xyz">
+            <img src="/img/avatar.jpg" alt="Tover">
+            Tover
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.tover.xyz/2018/03/19/把docker当作容器/&title=《把docker当作容器》 — 编程〲雜事&pic=https://blog.tover.xyz/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.tover.xyz/2018/03/19/把docker当作容器/&title=《把docker当作容器》 — 编程〲雜事&source=&emsp;&emsp;docker实战，做一个安全的编译环境！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/2018/03/16/Chapter9笔记/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Chapter_9 笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于Linux"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">关于Linux</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#docker的安装"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">docker的安装</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        想吃雪糕了。。。
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/reward-wechat.png" data-alipay="/img/reward-alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://tover-dl.blogspot.com/" target="_blank">Another blogger(Google)</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Tover &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.tover.xyz/2018/03/19/把docker当作容器/&title=《把docker当作容器》 — 编程〲雜事&pic=https://blog.tover.xyz/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.tover.xyz/2018/03/19/把docker当作容器/&title=《把docker当作容器》 — 编程〲雜事&source=&emsp;&emsp;docker实战，做一个安全的编译环境！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7EIAwF0Ln/pafbSjNkvjFZBB6rKk3BL5UsDH694vH+GP+fJ+9/vjl6MppzwcDAwHgs4305RgskiyWYz9lG6/6YBwMD4wBGPnUSeh7QdcJNYsPAwMBY+05OxcDAwOgwksL1jpSNgYGBkRSx1dA7J2Y31uIYGBgPZPRL0/t+vuV+AwMD41GMd3HkpWmSQOdi+BIVBgbG1oxVl5F3XCFUN5EYGBh7M+bCrZbBCabzBAMD4wTGXKIcMa4T69wG9HqLiYGBsStjboG5DeKqwvjLbzEwMLZm5GHl6S/fGuZrReUrBgbGpoy5I/jkSfXwrnqRsOAKEwMD41GMzrass3FcdoWAgYFxGCMvTRec8BVT8zBODAyMYxjJH+dh3VHElhvCMDAwNmJUi8Y8Ha9q9ip0iGBgYGzHyNspOkVmkqznGi+i/xIGBsbDGfmkc5u26282l5SHPSMYGBibMloXh43rzLnGsltKWQwMjAcy5qZOEnGy9axuJaPOEQwMjAMYeZnaL32TGIafFQMD42BGkoj71wzJ5/jxJgYGxgGM6vXA3DFZ/lHKK2JgYGzKeBdHzssbyzopHgMD4wRGteDMG8IKB/rF1o1CzwgGBsZGjGqSzVsr+k0Yhe+NgYFxAKNaplabKjrNGVFpjYGBgdEgVY/SJsEYGBgYwWFZ3oSRt4XlK2JgYJzAqIbVPzJbe52AgYGxN6NaOuaLTZajxUSMgYGxNeMPQaksukSx0wAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.2.6"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.2.6"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.2.6"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.2.6"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.2.6"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/js/plugins/leancloud_visitors.js?v=1.2.6"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    
+</body>
+</html>
