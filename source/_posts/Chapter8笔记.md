@@ -193,6 +193,7 @@ ps：相关链接	↓
 </br>
 &emsp;&emsp;[主定理(Master Theorem)笔记](https://blog.tover.xyz/2018/03/03/%E4%B8%BB%E5%AE%9A%E7%90%86%E6%B5%85%E8%B0%88/)
 &emsp;&emsp;[Chapter_9 笔记](https://blog.tover.xyz/2018/03/16/Chapter9%E7%AC%94%E8%AE%B0/)
+&emsp;&emsp;[Chapter_11 笔记](https://blog.tover.xyz/2018/03/28/Chapter11%E7%AE%80%E8%AE%B0/)
 
 
 
